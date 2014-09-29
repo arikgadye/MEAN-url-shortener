@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var Mongoose = require('mongoose');
-var db = Mongoose.connect('mongodb://localhost/blog');
+var db = Mongoose.connect('mongodb://localhost/shortn');
 require('./server/models/Url')
 var routes = require('./routes/index');
 var users = require('./routes/users');

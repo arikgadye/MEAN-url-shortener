@@ -10,23 +10,32 @@
 </head>
 <body ng-app="myApp" ng-controller="UrlController">
 	<div class="container">
-		<div class="col-md-6">
-			<h1>Shortn'</h1>
-			<br>
-			<form ng-submit="addUrl()">
-				<label>Url:</label>
-				<input type='text' ng-model="url">
+		<div class="row">
+			<div class="col-md-6">
+				<h1>Shortn'</h1>
 				<br>
-				<label>Shortened:</label>
-				<input type='text' ng-model="link">
-				<br>
-				<button type='submit' class='btn btn-success btn-lg'>Shortn</button>
-			</form>
-			<h4>Urls</h4>
-			<div ng-repeat="url in urls">
-				<a ng-href="{{url.name}}">{{url.link}}</a>
+				<form role='form' ng-submit="addUrl()">
+					<div class="form-group">
+						<label>Url:</label>
+						<div class="input-group">
+							<div class="input-group-addon">http://</div>
+							<input ng-model="url" class="form-control input-lg" placeholder="Enter a url">
+						</div>
+					</div>
+					<div class="form-group">
+						<label>Shortened:</label>
+						<input class='form-control input-lg' type='text' ng-model="link">
+						<br>
+						<button type='submit' class='btn btn-success btn-lg'>Shortn</button>
+					</div>
+				</form>
+				<h4>Urls</h4>
+				<ul>
+					<li ng-repeat="url in urls">
+						<h3><a ng-href="http://{{url.url}}">{{url.link}}</a></h3>
+					</li>
+				</ul>
 			</div>
 		</div>
-	</div>
-</body>
-</html>
+	</body>
+	</html>
