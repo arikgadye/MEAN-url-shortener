@@ -26,20 +26,11 @@ router.post('/urls', function(req, res, next) {
 	});
 });
 
-router.param('url', function(req, res, next, id) {
-	var query = Url.findById(id);
-
-	query.exec(function (err, url) {
-		if (err) { return next(err) }
-			if (!post) { return next(new Error("can't find url")); }
-
-		req.url = url;
-		return next();
+router.get('/:url', function(req, res) {
+	var name = "localhost:3000/" + req.params.url
+	var query = Url.find({'link': name}, function(err, docs){
+		res.redirect("http://" + docs[0].url);
 	});
-});
-
-router.get('/urls/:url', function(req, res) {
-	res.json(req.url);
-});
+})
 
 module.exports = router;

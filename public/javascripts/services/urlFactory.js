@@ -2,15 +2,15 @@ myApp
 .factory('urlFactory', ['$http', function($http){
 		var url = {}
 
+		url.validUrl = true;
 		url.getUrls = function() {
 			var promise = $http.get('/urls')
-			return promise;
+			return promise;	
 		}
 		url.addUrl = function(params) {
 			var promise = $http.post('/urls', params )
 			return promise;
 			console.log(promise)
 		}
-
 		return url
 }]);

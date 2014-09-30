@@ -7,9 +7,12 @@ myApp.controller('UrlController', function ($scope, $http, urlFactory) {
 	});
 	$scope.addUrl = function() {
 		if ($scope.url === '') { return; }
-		urlFactory.addUrl({ url: $scope.url, link: $scope.link }).success(function(data){
+		urlFactory.addUrl({ url: $scope.url, link: $scope.link })
+		.success(function(data){
 			$scope.urls.push(data);	
-		});
+		}).error(function(err) {
+			urlFactory.validUrl = false;
+		}.bind(this));
 		$scope.url = ''
 		$scope.link = ''
 	}
