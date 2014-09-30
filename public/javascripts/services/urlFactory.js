@@ -6,11 +6,16 @@ myApp
 		url.getUrls = function() {
 			var promise = $http.get('/urls')
 			return promise;	
-		}
+		};
 		url.addUrl = function(params) {
 			var promise = $http.post('/urls', params )
 			return promise;
-			console.log(promise)
-		}
+		};
+
+		url.deleteUrl = function(id) {
+			var promise = $http.get('/delete/' + id)
+			return promise;
+		};
+
 		return url
 }]);

@@ -11,7 +11,7 @@
 <body ng-app="myApp" ng-controller="UrlController">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-6">
+			<div class="col-md-8">
 				<h1>Shortn'</h1>
 				<br>
 				<form role='form' ng-submit="addUrl()">
@@ -25,7 +25,7 @@
 					</div>
 					<div class="form-group">
 						<label>Shortened:</label>
-						<input class='form-control input-lg' type='text' ng-model="link">
+						<input placeholder="Your short URL (e.g. 'supman')" class='form-control input-lg' type='text' ng-model="link">
 						<br>
 						<button type='submit' class='btn btn-success btn-lg'>Shortn</button>
 					</div>
@@ -33,10 +33,12 @@
 				<h4>Urls</h4>
 				<ul>
 					<li ng-repeat="url in urls">
-						<h3><a href='http://{{url.url}}'>{{url.link}}</a></h3>
-					</li>
-				</ul>
+						<span><i ng-click="deleteUrl(url._id)" class="
+							glyphicon glyphicon-trash"></i></span>&nbsp
+							<span class='txt-lg'><a href='http://{{url.url}}'>{{url.link}}</a> = {{url.url}}</span>
+						</li>
+					</ul>
+				</div>
 			</div>
-		</div>
-	</body>
-	</html>
+		</body>
+		</html>

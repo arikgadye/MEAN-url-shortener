@@ -33,4 +33,11 @@ router.get('/:url', function(req, res) {
 	});
 })
 
+router.get('/delete/:id', function(req, res) {
+	Url.remove({ _id: req.params.id }, function(err, response) {
+		if (err) {
+			console.log(err)
+		}
+	});
+});
 module.exports = router;

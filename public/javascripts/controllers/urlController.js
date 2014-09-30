@@ -15,6 +15,15 @@ myApp.controller('UrlController', function ($scope, $http, urlFactory) {
 		}.bind(this));
 		$scope.url = ''
 		$scope.link = ''
+	};
+
+	$scope.deleteUrl = function(id) {
+		urlFactory.deleteUrl(id)
+		for(var i = 0; i < $scope.urls.length; i++) {
+			if($scope.urls[i]._id === id) {
+				$scope.urls.splice(i, 1);
+				break;
+			}		
+		}
 	}
 });
-	
